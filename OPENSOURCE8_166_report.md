@@ -14,15 +14,23 @@
 
 #### 유사서비스 분석
 
-
+(다이어트 카메라 AI), (필리코치), (당뇨 카메라) 등등 다양한 어플에서 해당 api와 동일한 기능을 사용중에 있다.
 
 #### 오픈소스 설명
 
+<kakao i vision> api에 대하여
 
+kakao에서 제공하는 클라우드형 서비스로 사용자가 입력한 사진에서 각 음식의 종류 및 위치, 영양성분 정보 결과를 제공한다.
+
+<관련링크: https://kakaoicloud.com/service/detail/6-28>
+
+<FoodLends> SDK에 대하여
+'두잉랩'기업에서 제공하는 SDK로 사용자가 입력한 사진에서 음식을 인식하여 특성과 칼로리정보를 제공한다. 
+<관련링크 : https://github.com/doinglab/FoodLensSDK>
 
 #### DFD
 
-
+사용자로부터 카메라 사진정보를 입력받은 후 kakao cloud서버에 전달 -> 받은결과를 elastic search와같은 검색 엔진을 통해 해당 음식의 칼로리 값을 도출해 낸다.
 
 #### 결론
 
