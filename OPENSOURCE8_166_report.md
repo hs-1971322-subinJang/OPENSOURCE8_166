@@ -1,22 +1,97 @@
 # 오픈소스 소프트웨어 시스템 설계서
 
-#### 8반 16_6조 | 장수빈이현승, 임종혁, 김지훈,김진호,김태하
+#### 8반 16_6조 | 장수빈, 이현승, 임종혁, 김지훈, 김진호, 김태하
 
 
 
-#### 프로젝트 개요
+### 프로젝트 개요
+
+---
+
+ 자기 관리에 대한 관심이 계속해서 증가하고 있는 현재, 운동 그중에서도 헬스에 대한 관심은 그 어느때보다도 높다고 볼 수 있다. 과거에는 몸이 좋은 사람들을 보기가 쉽지 않았다. TV에서 연예인이나 운동 선수들을 보거나 길거리에서 지나가는 사람들 정도였다면 지금은 각종 SNS와 유튜브 등의 사용량이 증가하면서 몸이 좋은 사람들에 대한 접근이 쉬워졌고 자연스럽게 운동에 대한 관심도 늘어가게 되었다. 
+
+ 헬스를 시작하는 사람이 늘어난 것이 단순히 몸 좋은 사람들을 많이 접한 것 만으로 일어난 것은 아니다. SNS에는 사람들뿐만 아니라 운동 방법이나 식단, 영양성분에 대한 얘기들도 늘어나게 되었고, 과거 운동을 배우려면 돈을 더내고 PT를 받거나 어깨너머로 다른 사람을 흉내내는 것보다 더 훌륭한 교육 자료를 볼 수 있게 되었다. 덕분에 헬스를 시작하는 진입장벽이 많이 낮아지게 되었다.
+
+ 그러나 넘치는 정보의 홍수 속에서 어떤 정보가 나한테 맞는 정보인지, 내 몸상태에 어떠한 운동을 해주어야 하는지, 어떠한 음식을 먹어야하는지는 개인이 시간을 들여 찾아보아야하고 수많은 시행착오가 있어야한다. 아니면 개인 PT를 받아야하는데 금전적으로 여유가 있지않다면 차마 선뜻 시도하지 못한다. 이러한 어려움들이 운동을 다시 시작하는 부담을 높이게 되고 이러한 문제를 해결하기 위해 인공지능을 이용한 PT 서비스를 생각하게 되었다.
+
+### 서비스 설명
+
+---
+
+ 크게 3가지의 기능으로 나눌 수 있다. 
+
+1. 체형분석 및 운동 루틴 추천
+
+   일명 "눈바디"라고 부르는 사용자의 체형 사진을 찍어 체형분석을 한다. 그 후 사용자의 개개인의 체형과 목표에 맞는 운동을 추천을 해준다. 예를 들어 다이어트를 원한다면 칼로리 소모가 좀 더 높거나 유산소 비중을 높인 운동 루틴들을 추천해서 사용자가 선택, 이용하게 한다.
+
+2. 운동 자세 교정 
+
+   단순히 운동 방법을 알려주는 것이 아닌 사용자가 운동하는 모습을 영상으로 찍으면 사용자의 자세를 분석해서 교정을 해준다. 또한 따라하기 쉽도록 골격을 화면에 보여줘서 사용자 스스로 자신의 자세가 어떠한지 평가 할 수 있게 해준다.
+
+3. 식단 추천 및 성분 분석 
+
+   사용자가 원하는 체중이나 목표를 설정하면 그에 맞는 식단을 추천해준다. 항상 같은 메뉴가 아닌 비슷한 영양성분의 다른 메뉴들을 추천해줘서 질리지 않고 식단을 이어나갈 수 있도록 도와준다. 앱에서 추천해준 음식이 아닌 경우 음식의 사진을 찍으면 사진을 분석해서 그 음식의 칼로리, 성분들을 표시해준다. 
+
+### 유사서비스 분석
+
+---
+
+ 국내에서 출시 중인 App으로는 Kakao에서 만든 '스마트홈트', '하우핏' 2개가 다운로드 수도 많고, 평점수가 높아 유사서비스 분석 대상으로 선정하였다. 두 App들은 모션인식을 기반으로, 일정 수치 이상의 동작 이상이 없을 경우 동작의 일치함을 인정한다. 또한, 유명 트레이너 및 강사들을 영입하여 운동의 진입장벽을 낮추고 있다. 운동을 마친 이후 소모한 kcal를 알려주며, 운동을 한 분기점 전과 비교하여 감소율을 알려준다. 그렇지만, 운동을 마치고 해당 부위의 다른 운동법 추천이 없는 점이 꽤나 아쉬웠다.
+'스마트홈트'의 경우는 자체적인 Ai 인식을 통한 kcal 계산을 할 수 있는 식단 시스템이 있다. 사진을 찍거나, 앨범에 있는 사진을 가져올 시 자체적인 딥러닝을 마춘 Ai가 유사 음식들과 비교하여 kcal를 알려준다. 하지만 음식의 분별력에 있어 한참 부족한 면이 있었고, 이를 보완했으면 더욱 좋다는 생각을 가졌다.
+
+'스마트홈트'의 경우 오픈소스 라이선스를 지니고 있다.
+[사용된 오픈소스 목록 및 URL]
+firebase : https://github.com/firebase/firebase-android-sdk
+facebook sdk : https://github.com/facebook/facebook-android-sdk
+kotlinx.coroutines : https://github.com/Kotlin/kotlinx.coroutines
+retrofit2-kotlin-coroutines-adapter : https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter
+RxJava : https://github.com/ReactiveX/RxJava
+RxAndroid : https://github.com/ReactiveX/RxAndroid
+RxKotlin : https://github.com/ReactiveX/RxKotlin
+RxBinding : https://github.com/JakeWharton/RxBinding
+Dagger : https://github.com/google/dagger
+Retrofit2 : https://github.com/square/retrofit
+OkHttp3 : https://github.com/square/okhttp
+Glide :https://github.com/bumptech/glide
+Exo Player : https://github.com/google/ExoPlayer
+Gson : https://github.com/google/gson
+Simple XML : http://simple.sourceforge.net
+Anko : https://github.com/Kotlin/anko
+stetho : https://github.com/facebook/stetho
+leakcanary : https://github.com/square/leakcanary
+material-calendarview : https://github.com/prolificinteractive/material-calendarview
+AutoScrollViewPager : https://github.com/angeldevil/AutoScrollViewPager
+ViewPagerIndicator : https://github.com/JakeWharton/ViewPagerIndicator
+ExpandableTextView : https://github.com/Manabu-GT/ExpandableTextView
+Skeleton : https://github.com/ethanhua/Skeleton
+ShimmerLayout : https://github.com/team-supercharge/ShimmerLayout
+jglm : https://github.com/jroyalty/jglm
+Kakao Open SDK : https://developers.kakao.com/docs/sdk
+mace : https://github.com/XiaoMi/mace
+tensorflow : https://github.com/tensorflow/tensorflow
+FlycoTabLayout : https://github.com/H07000223/FlycoTabLayout
+Flurry : https://github.com/flurry/flurry-android-sdk
+RealtimeBlurView : https://github.com/mmin18/RealtimeBlurView
+CircularProgressView : https://github.com/rahatarmanahmed/CircularProgressView
+CircleProgressBar :https://github.com/dinuscxj/CircleProgressBar
+Subsampling Scale Image View : https://github.com/davemorrissey/subsampling-scale-image-view
+ARCore : https://developers.google.com/ar/reference
 
 
 
-#### 서비스 설명
+### 오픈소스 설명
 
+---
 
+운동이 끝난 직후, 추천 영상을 소개해주는 오픈소스를 가져오고자 한다.
 
-#### 유사서비스 분석
+Algorithm : 운동 영상이 끝난 직후 적절한 영상감을 찾는 과정을 알려준다.
+https://github.com/TheAlgorithms/C-Plus-Plus
 
+Recommend : 'Algorithm'의 결과 값을 바탕으로 '추천'을 하는 소스이다.
+https://github.com/hongleizhang/RSPapers.git
 
-
-#### 오픈소스 설명
+---
 
 ### Open Pose를 이용한 모션인식  
 
@@ -39,8 +114,6 @@
 OpenPose 전에도 이렇게 인간의 스켈레톤을 찾는 방법은 연구가 되었지만 그 전에는 사람을 검출하고, 검출된 사람에 대한 자세를 찾도록 반복 수행하는 Top-Down 방식을 사용 하였지만 OpenPose는 Bottom-Up 방식으로 반복처리 없이 수행을 한다.
 
 <hr>
-
-
 ### 자세 추정 방식
 
 - <em>Top-Down</em>
@@ -58,8 +131,6 @@ OpenPose 전에도 이렇게 인간의 스켈레톤을 찾는 방법은 연구�
   - 정확도는 Top-down 방식에 비해 떨어지지만, Object Detection 과정이 없기 때문에 속도가 빨라 실시간 처리에 사용 가능
 
 <hr>
-
-
 ### Realtime, Multi-Person ( Runtime Analsis )
 
 Openpose의 저자는 Openpose 모델이 Realtime, Multi-Person 환경에서도 우수한 성능을 보여준다는 점을 논문의 제목에서부터 강조하고 있다. 저자는 다른 Human Pose Estimation 모델인 AlphaPose와 Mask R-CNN과 성능을 비교하여 이를 근거로 들었다. 자료는 아래와 같습니다.
@@ -69,8 +140,6 @@ Openpose의 저자는 Openpose 모델이 Realtime, Multi-Person 환경에서도 
 Openpose(아래쪽 평평한 두 개의 선)의 추론 시간은 이미지 내의 사람이 몇명이든 일정한 것이 가장 큰 특징이다. 위에서 설명했듯이 Bottom-up방식의 장점중 하나라고 할 수 있다. 반면 AlphaPose와 Mask R-CNN의 경우 이미지에 등장하는 사람 수에 비례해서 추론 시간이 늘어나는 것을 확인할 수 있다. 이를 통해 Openpose가 Realtime, Multi-Person 환경에서 유리하다는 것을 알 수 있다.
 
 <hr>
-
-
 ### OpenPose의 딥러닝 네트워크 구조
 
 ![Realtime, Multi-Person](https://post-phinf.pstatic.net/MjAyMDAzMjBfMzQg/MDAxNTg0Njg3MzE5NDY5.6IwpJitMU6uSdP4RS_vuKaAGaVglQArkZ8WESZh3pfQg.c1fMTKvu_L5NOcJk4qTYjtwYtfV_EkDff5aqz1k5uJog.JPEG/humanpose_03.jpg?type=w1200)
@@ -86,8 +155,6 @@ Stage 1은 2개의 브랜치로 나누어진다. 첫 번째 브랜치의 CNN(p1)
 이후 Stage 2부터는 Stage 1의 출력인 Confidence Map(S)과 PAFs(L), VGG Network의 출력인 특징맵(F)을 조합해서 CNN의 입력으로 사용한다. 네트워크가 깊어질수록 앞에 위치한 layer는 학습의 영향이 줄어들기 때문에 좀 더 나은 결과를 얻기 위해 매 Stage마다 특징맵(F)을 사용한다. 네트워크의 각 Stage에서는 예측한 수치와 실제 훈련 데이터에 있는 정답과 비교를 통해 오차값을 구하고 이를 최소화하는 방향으로 네트워크를 학습시킨다.
 
 <hr>
-
-
 ### 한계
 
 - 학습되지 않은 희귀한 자세 (추정은 어느정도 하지만 떨리는 현상)
@@ -98,8 +165,6 @@ Stage 1은 2개의 브랜치로 나누어진다. 첫 번째 브랜치의 CNN(p1)
 - 원거리 스켈레톤 검출 잘 안됨 (원거리의 기준은 카메라 해상도, FOV마다 다르다.)
 
 <hr>
-
-
 ### 사용 결과 및 실행 결과
 
 사람의 몸에 장비를 장착하지 않고 사진이나 영상으로 사람의 자세를 추출할 수 있다.
@@ -119,7 +184,9 @@ Stage 1은 2개의 브랜치로 나누어진다. 첫 번째 브랜치의 CNN(p1)
 #### 오픈소스 출처
 
 https://github.com/CMU-Perceptual-Computing-Lab/openpose
-=======
+
+---
+
 ## **Talend Open Studio for Data Integration**
 
 #### Talend Open Studio란?
@@ -130,7 +197,7 @@ Talend는 오픈소스 ETL 데이터 통합 솔루션으로 온프레미스와 �
 
 ETL은 추출(Extract), 변환(Transform), 적재(Load)로 여러 데이터 소스에서 데이터를 추출하여 사용자가 원하는 형태로 변환 후 데이터 웨어하우스, 데이터베이스 등에 적재하는 것을 말한다. 처리해야하는 데이터의 양의 폭발적으로 늘어나면서 데이터 분석에 많은 비용이 들게 되었는데 ETL 툴을 이용하여 데이터를 효율적으로 활용할 수 있다.
 
-![image-20221112231455901](C:\Users\eltm5\AppData\Roaming\Typora\typora-user-images\image-20221112231455901.png)
+![ETL(추출, 변환 및 로드) - Azure Architecture Center | Microsoft Learn](https://learn.microsoft.com/ko-kr/azure/architecture/data-guide/images/etl.png)
 
 #### **장점**
 
@@ -154,44 +221,48 @@ https://www.talend.com/
 
 https://sourceforge.net/projects/talend-studio/
 
+---
 
-MediaPipe 포즈 감지(Pose)
+## MediaPipe 포즈 감지(Pose)
 
-Licence
+#### Licence
 Apache License Version 2.0, January 2004
 
-Mediapipe 깃 허브 주소
-https://github.com/google/mediapipe.git
-
-MediaPipe
+#### MediaPipe
 MediaPipe란 구글에서 제공하는 AI 프레임워크로서, 비디오형식 데이터를 이용한 다양한 비전 AI 기능을 파이프라인 형태로 손쉽게 사용할 수 있도록 제공된다. AI 모델개발 및 수많은 데이터셋을 이용한 학습도 마친 상태로 제공되므로 간편하게 호출하여 사용하기만 하면 된다.
 기본적인 얼굴인식 이외에도 Pose 인식 등 다양한 비전AI 기능들이 제공되는데 본 서비스에서는 Pose만 사용한다.
 
-Pose Land Mark
+#### Pose Land Mark
 포즈 랜드마크의 리스트이다.. 각 랜드마크는 다음과 같이 구성된다. 
 x와 y : 랜드마크의 좌표는 각각 이미지의 너비와 높이로 [0.0, 1.0]로 표준화된다.
 z : 엉덩이 중간 지점의 깊이를 원점으로 하여 랜드마크의 깊이를 나타내며, 랜드마크가 카메라에 가까울수록 값이 작아진다. z의 크기는 x와 거의 비슷한 척도를 사용한다.
 Pose Land Mark를 통해 영상 속 사람의 Skeleton Model을 추출할 수 있다. 추출된 Skelton Model의 Pose Land Mark의 반복적인 움직임을 통해 올바른 동작 자세를 추출할 수 있다.
 
-Pose Classification
+#### Pose Classification
 MediaPipe를 활용하면 포즈 분류가 가능하다. 각 운동의 최종 상태( 팔굽혀 펴기를 예로 들면 위, 아래의 위치)에 대한 수백개의 샘플을 추출해낸다.
 Pose Land Mark를 특징 벡터로 변환하기 위해 손목과 어깨, 두 손목 사이의 거리와 같이 미리 정의된 포즈 관절 목록 사이의 쌍별 거리를 사용한다. 알고리즘은 거리에 의존하기 때문에 모든 포즈는 변환 전에 동일한 몸통 크기와 수직 몸통 방향을 갖도록 정규화된다.
 
-Repetition Counting
+#### Repetition Counting
 반복적인 움직임을 채크한다. 이를 통해 Pose Land Mark의 x,y,z 축의 움직임을 측정할 수 있다.
 
-활용방안
+#### 활용방안
 운동 영상을 통해 데이터를 구축한다.
 Pose Classification를 통해 동작을 분류하고, Repetition Counting을 통해 반복적인 움직임을 관측한다. 그 후 Pose Land Mark을 통해 x,y,z,의 움직임을 수집한다.
+
+#### Mediapipe 깃 허브 주소
+https://github.com/google/mediapipe.git
 
 출처
 https://google.github.io/mediapipe/solutions/pose_classification.html
 https://google.github.io/mediapipe/solutions/pose
-#### DFD
+
+---
+
+### DFD
 
 ![DFD_오픈소스](https://user-images.githubusercontent.com/70803824/202886656-3e3a4d51-1360-4157-b3a9-210ad6fe2f08.png)
 
-#### 결론
+### 결론
 
 
 
